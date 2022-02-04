@@ -1,46 +1,45 @@
 project Default is
 
    --  ADL Project dependency's source directories
-   ADL_Src_Dirs_Root := "src/Ada_Drivers_Library";
    for Source_Dirs use (
-                        ADL_Src_Dirs_Root & "/hal/src/", -- From HAL config
-                        ADL_Src_Dirs_Root & "/boards/stm32f429_discovery/src/sfp", -- From board definition
-                        ADL_Src_Dirs_Root & "/boards/stm32_common/stm32f429disco/", -- From board definition
-                        ADL_Src_Dirs_Root & "/boards/stm32_common/common/", -- From board definition
-                        ADL_Src_Dirs_Root & "/boards/stm32_common/dma2d/", -- From board definition
-                        ADL_Src_Dirs_Root & "/boards/stm32_common/ltdc/", -- From board definition
-                        ADL_Src_Dirs_Root & "/boards/stm32_common/sdram/", -- From board definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/cortex_m/src", -- From arch definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/cortex_m/src/cm4f", -- From arch definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/cortex_m/src/fpu", -- From arch definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/cortex_m/src/nocache", -- From arch definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/cortex_m/src/nvic_cm4_cm7", -- From arch definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/devices/stm32f42x/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/svd/stm32f429x", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/dma/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/dma_interrupts/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/fmc/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/dma2d/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/crc_stm32f4/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/i2c_stm32f4", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/power_control_stm32f4", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/uart_stm32f4/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/ltdc/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/sd/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/arch/ARM/STM32/drivers/sd/sdio/", -- From MCU definition
-                        ADL_Src_Dirs_Root & "/middleware/src/filesystem", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/BLE", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/utils", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/audio", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/monitor", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/bitmap", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/command_line", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/sdmmc", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/neopixel", -- From middleware config
-                        ADL_Src_Dirs_Root & "/middleware/src/ravenscar-common", -- From middleware config
-                        ADL_Src_Dirs_Root & "/components/src/**", -- From components config
-                        ADL_Src_Dirs_Root & "/examples/shared/serial_ports/src", -- From serial port example
+                        "src/Ada_Drivers_Library/hal/src/", -- From HAL config
+                        "src/Ada_Drivers_Library/boards/stm32f429_discovery/src/sfp", -- From board definition
+                        "src/Ada_Drivers_Library/boards/stm32_common/stm32f429disco/", -- From board definition
+                        "src/Ada_Drivers_Library/boards/stm32_common/common/", -- From board definition
+                        "src/Ada_Drivers_Library/boards/stm32_common/dma2d/", -- From board definition
+                        "src/Ada_Drivers_Library/boards/stm32_common/ltdc/", -- From board definition
+                        "src/Ada_Drivers_Library/boards/stm32_common/sdram/", -- From board definition
+                        "src/Ada_Drivers_Library/arch/ARM/cortex_m/src", -- From arch definition
+                        "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/cm4f", -- From arch definition
+                        "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/fpu", -- From arch definition
+                        "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/nocache", -- From arch definition
+                        "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/nvic_cm4_cm7", -- From arch definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/devices/stm32f42x/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/svd/stm32f429x", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/dma/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/dma_interrupts/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/fmc/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/dma2d/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/crc_stm32f4/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/i2c_stm32f4", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/power_control_stm32f4", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/uart_stm32f4/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/ltdc/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/sd/", -- From MCU definition
+                        "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/sd/sdio/", -- From MCU definition
+                        "src/Ada_Drivers_Library/middleware/src/filesystem", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/BLE", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/utils", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/audio", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/monitor", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/bitmap", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/command_line", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/sdmmc", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/neopixel", -- From middleware config
+                        "src/Ada_Drivers_Library/middleware/src/ravenscar-common", -- From middleware config
+                        "src/Ada_Drivers_Library/components/src/**", -- From components config
+                        "src/Ada_Drivers_Library/examples/shared/serial_ports/src", -- From serial port example
                         "src/");
 
    for Object_Dir use "obj";
