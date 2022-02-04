@@ -1,14 +1,10 @@
---  A demonstration of a higher-level USART interface, using non-blocking I/O.
 --  The file declares the main procedure for the demonstration.
-
---  with Last_Chance_Handler;  pragma Unreferenced (Last_Chance_Handler);
---  The "last chance handler" is the user-defined routine that is called when
---  an exception is propagated. We need it in the executable, therefore it
---  must be somewhere in the closure of the context clauses.
 
 with Peripherals_Nonblocking;    use Peripherals_Nonblocking;
 with Serial_IO.Nonblocking;      use Serial_IO.Nonblocking;
 with Message_Buffers;            use Message_Buffers;
+with InputSanitizer;
+with Ada.Real_Time;              use Ada.Real_Time;
 
 procedure Main is
 
@@ -25,6 +21,8 @@ procedure Main is
       --  We must await xmit completion because Put does not wait
    end Send;
 
+   Input : InputSanitizer.Input_Range;
+
 begin
    Initialize (COM);
 
@@ -33,12 +31,14 @@ begin
    Send ("Enter text, terminated by CR.");
 
    Set_Terminator (Incoming, To => ASCII.CR);
-   loop
+   while InputSanitizer.Read( Seconds(3), Input) loop
       Get (COM, Incoming'Unchecked_Access);
       Await_Reception_Complete (Incoming);
       --  We must await reception completion because Get does not wait
 
       Send ("Received : " & Content (Incoming));
    end loop;
+
+   Send( "Application Terminating. Goodbye." );
 end Main;
 
