@@ -8,8 +8,6 @@ with Ada.Real_Time;              use Ada.Real_Time;
 
 procedure Main is
 
-   Incoming : aliased Message (Physical_Size => 1024);  -- arbitrary size
-
    procedure Send (This : String);
 
    procedure Send (This : String) is
@@ -30,13 +28,8 @@ begin
 
    Send ("Enter text, terminated by CR.");
 
-   Set_Terminator (Incoming, To => ASCII.CR);
    while InputSanitizer.Read( Seconds(3), Input) loop
-      Get (COM, Incoming'Unchecked_Access);
-      Await_Reception_Complete (Incoming);
-      --  We must await reception completion because Get does not wait
-
-      Send ("Received : " & Content (Incoming));
+      Send ("Received : " & Input'Image & ASCII.CR);
    end loop;
 
    Send( "Application Terminating. Goodbye." );
