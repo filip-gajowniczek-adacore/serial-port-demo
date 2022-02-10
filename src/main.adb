@@ -4,6 +4,7 @@ with Peripherals_Nonblocking;    use Peripherals_Nonblocking;
 with Serial_IO.Nonblocking;      use Serial_IO.Nonblocking;
 with Message_Buffers;            use Message_Buffers;
 with InputSanitizer;
+with Input_Processor;
 with Ada.Real_Time;              use Ada.Real_Time;
 
 procedure Main is
@@ -26,10 +27,11 @@ begin
 
    Configure (COM, Baud_Rate => 115_200);
 
-   Send ("Enter text, terminated by CR.");
+   Send ("Enter Input in [0,10], terminated by CR.");
 
    while InputSanitizer.Read( Seconds(3), Input) loop
-      Send ("Received : " & Input'Image & ASCII.CR);
+      Input_Processor.Process(Input);
+      Send ("Processing result: " & Input_Processor.Get_Processing_Result & ASCII.CR);
    end loop;
 
    Send( "Application Terminating. Goodbye." );
