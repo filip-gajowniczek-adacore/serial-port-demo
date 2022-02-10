@@ -14,7 +14,7 @@ package body InputSanitizer is
       if Raw_Message.Content_At(1) = '1' and then Raw_Message.Content_At(2) = '0' then
          Read_Value := 10;
       elsif Raw_Message.Content_At(2) in '0' .. '9' then
-         Read_Value := Input_Range'Value(Raw_Message.Content(1..2));
+         Read_Value := Input_Range'Value(Raw_Message.Content);
       else
          return False;
       end if;

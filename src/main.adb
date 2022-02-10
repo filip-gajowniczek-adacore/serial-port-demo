@@ -27,13 +27,14 @@ begin
 
    Configure (COM, Baud_Rate => 115_200);
 
-   Send ("Enter Input in [0,10], terminated by CR.");
-
-   while InputSanitizer.Read( Seconds(3), Input) loop
+   Send ("Enter Input in [0,10], terminated by CR." & ASCII.CR & ASCII.LF);
+   while InputSanitizer.Read( Seconds(10), Input) loop
       Input_Processor.Process(Input);
-      Send ("Processing result: " & Input_Processor.Get_Processing_Result & ASCII.CR);
+      Send ("Processing result: " & Input_Processor.Get_Processing_Result &
+              ASCII.CR & ASCII.LF);
+      Send ("Enter Input in [0,10], terminated by CR." & ASCII.CR & ASCII.LF);
    end loop;
 
-   Send( "Application Terminating. Goodbye." );
+   Send( "Application Terminating. Goodbye." & ASCII.CR & ASCII.LF );
 end Main;
 

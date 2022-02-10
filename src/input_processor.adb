@@ -1,4 +1,6 @@
 pragma Ada_2012;
+with Ada.Exceptions;  use Ada.Exceptions;
+
 package body Input_Processor is
 
    Accumulation : Integer := 0;
@@ -16,9 +18,10 @@ package body Input_Processor is
    -- Get_Processing_Result --
    ---------------------------
 
-   function Get_Processing_Result return Result_String is
+   -- Returns fixed-length String on the secondary stack
+   function Get_Processing_Result return String is
    begin
-      return Result_String(Accumulation'Image);
+      return Accumulation'Image;
    end Get_Processing_Result;
 
 end Input_Processor;
