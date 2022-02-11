@@ -1,0 +1,54 @@
+library project Drivers is
+
+   --  ADL Project dependency's source directories
+   for Source_Dirs use ("Ada_Drivers_Library/hal/src", "Ada_Drivers_Library/boards/stm32f429_discovery/src/sfp", "Ada_Drivers_Library/boards/stm32_common/stm32f429disco", 
+      "Ada_Drivers_Library/boards/stm32_common/common", "Ada_Drivers_Library/boards/stm32_common/dma2d", "Ada_Drivers_Library/boards/stm32_common/ltdc", "Ada_Drivers_Library/boards/stm32_common/sdram", 
+      "Ada_Drivers_Library/arch/ARM/cortex_m/src", "Ada_Drivers_Library/arch/ARM/cortex_m/src/cm4f", "Ada_Drivers_Library/arch/ARM/cortex_m/src/fpu", "Ada_Drivers_Library/arch/ARM/cortex_m/src/nocache", 
+      "Ada_Drivers_Library/arch/ARM/cortex_m/src/nvic_cm4_cm7", "Ada_Drivers_Library/arch/ARM/STM32/devices/stm32f42x", "Ada_Drivers_Library/arch/ARM/STM32/svd/stm32f429x", 
+      "Ada_Drivers_Library/arch/ARM/STM32/drivers", "Ada_Drivers_Library/arch/ARM/STM32/drivers/dma", "Ada_Drivers_Library/arch/ARM/STM32/drivers/dma_interrupts", 
+      "Ada_Drivers_Library/arch/ARM/STM32/drivers/fmc", "Ada_Drivers_Library/arch/ARM/STM32/drivers/dma2d", "Ada_Drivers_Library/arch/ARM/STM32/drivers/crc_stm32f4", 
+      "Ada_Drivers_Library/arch/ARM/STM32/drivers/i2c_stm32f4", "Ada_Drivers_Library/arch/ARM/STM32/drivers/power_control_stm32f4", "Ada_Drivers_Library/arch/ARM/STM32/drivers/uart_stm32f4", 
+      "Ada_Drivers_Library/arch/ARM/STM32/drivers/sd", "Ada_Drivers_Library/arch/ARM/STM32/drivers/sd/sdio", "Ada_Drivers_Library/middleware/src/filesystem", "Ada_Drivers_Library/middleware/src/BLE", 
+      "Ada_Drivers_Library/middleware/src/utils", "Ada_Drivers_Library/middleware/src/audio", "Ada_Drivers_Library/middleware/src/monitor", "Ada_Drivers_Library/middleware/src/bitmap", 
+      "Ada_Drivers_Library/middleware/src/command_line", "Ada_Drivers_Library/middleware/src/sdmmc", "Ada_Drivers_Library/middleware/src/neopixel", "Ada_Drivers_Library/middleware/src/ravenscar-common", 
+      "Ada_Drivers_Library/components/src/**", "Ada_Drivers_Library/examples/shared/serial_ports/src");
+   for Object_Dir use "obj";
+   --  for Main use ("main.adb");
+   --  for Target use "arm-eabi";
+   --  for Runtime ("ada") use "light-tasking-stm32f4";
+
+   for Library_Name use "stm32f429_drivers";
+   for Library_Dir use "lib";
+   for Source_Files use ("adafruit.ads", "adafruit-charliewing.adb", "adafruit-charliewing.ads", "adafruit-thermal_printer.adb", "adafruit-thermal_printer.ads", "adafruit-trellis.adb", "adafruit-trellis.ads", "adl_config.ads", "ak8963.adb", 
+      "ak8963.ads", "bbq10kbd.adb", "bbq10kbd.ads", "bit_fields.adb", "bit_fields.ads", "bitmap_color_conversion.adb", "bitmap_color_conversion.ads", "bitmap_file_output.adb", "bitmap_file_output.ads", "bluetooth_low_energy.adb", 
+      "bluetooth_low_energy.ads", "bluetooth_low_energy-beacon.adb", "bluetooth_low_energy-beacon.ads", "bluetooth_low_energy-packets.adb", "bluetooth_low_energy-packets.ads", "bno055_i2c_io.adb", "bno055_i2c_io.ads", "bosch_bno055.adb", 
+      "bosch_bno055.ads", "command_line.adb", "command_line.ads", "command_line-filesystem.adb", "command_line-filesystem.ads", "command_line-filesystem-cat.adb", "command_line-filesystem-cat.ads", 
+      "command_line-filesystem-list_directory.adb", "command_line-filesystem-list_directory.ads", "command_line-filesystem-remove_directory.adb", "command_line-filesystem-remove_directory.ads", 
+      "command_line-filesystem-touch.adb", "command_line-filesystem-touch.ads", "cortex_m.ads", "cortex_m-cache.adb", "cortex_m-cache.ads", "cortex_m-debug.adb", "cortex_m-debug.ads", "cortex_m-dwt.adb", "cortex_m-dwt.ads", 
+      "cortex_m-fpu.adb", "cortex_m-fpu.ads", "cortex_m-hints.adb", "cortex_m-hints.ads", "cortex_m-nvic.adb", "cortex_m-nvic.ads", "cortex_m_svd.ads", "cortex_m_svd-debug.ads", "cortex_m_svd-dwt.ads", "cortex_m_svd-fpu.ads", 
+      "cortex_m_svd-mpu.ads", "cortex_m_svd-nvic.ads", "cortex_m_svd-scb.ads", "cortex_m_svd-systick.ads", "cs43l22.adb", "cs43l22.ads", "file_block_drivers.adb", "file_block_drivers.ads", "file_io.adb", "file_io.ads", "filesystem.ads", 
+      "filesystem-fat.adb", "filesystem-fat.ads", "filesystem-fat-directories.adb", "filesystem-fat-directories.ads", "filesystem-fat-files.adb", "filesystem-fat-files.ads", "filesystem-mbr.adb", "filesystem-mbr.ads", "ft5336.adb", "ft5336.ads", 
+      "ft6x06.adb", "ft6x06.ads", "hal.ads", "hal-audio.ads", "hal-bitmap.ads", "hal-block_drivers.ads", "hal-dsi.ads", "hal-filesystem.ads", "hal-framebuffer.ads", "hal-gpio.ads", "hal-i2c.ads", "hal-real_time_clock.ads", "hal-sdmmc.adb", 
+      "hal-sdmmc.ads", "hal-spi.ads", "hal-time.ads", "hal-touch_panel.ads", "hal-uart.ads", "hex_dump.adb", "hex_dump.ads", "ht16k33.adb", "ht16k33.ads", "ili9341.adb", "ili9341.ads", "ili9341_regs.ads", "is31fl3731.adb", "is31fl3731.ads", 
+      "l3gd20.adb", "l3gd20.ads", "lis3dsh.adb", "lis3dsh.ads", "lis3dsh-spi.adb", "lis3dsh-spi.ads", "logging.adb", "logging.ads", "logging_with_categories.adb", "logging_with_categories.ads", "logging_with_priority.adb", 
+      "logging_with_priority.ads", "lps25h.ads", "lps25h-i2c.adb", "lps25h-i2c.ads", "lps25h-spi.adb", "lps25h-spi.ads", "lsm303agr.adb", "lsm303agr.ads", "mcp23008.ads", "mcp23x08.adb", "mcp23x08.ads", "mcp23x08-i2c.adb", 
+      "mcp23x08-i2c.ads", "memory_barriers.adb", "memory_barriers.ads", "memory_mapped_bitmap.adb", "memory_mapped_bitmap.ads", "message_buffers.adb", "message_buffers.ads", "mma8653.adb", "mma8653.ads", "monitor.ads", 
+      "monitor-block_drivers.adb", "monitor-block_drivers.ads", "mpu9250.adb", "mpu9250.ads", "neopixel.adb", "neopixel.ads", "otm8009a.adb", "otm8009a.ads", "ov2640.adb", "ov2640.ads", "ov7725.adb", "ov7725.ads", "partitions.adb", 
+      "partitions.ads", "pathname_manipulation.adb", "pathname_manipulation.ads", "pcd8544.adb", "pcd8544.ads", "pcd8544_reg.ads", "peripherals_blocking.ads", "peripherals_nonblocking.ads", "pmw3901.adb", "pmw3901.ads", 
+      "ravenscar_time.adb", "ravenscar_time.ads", "sdmmc_init.adb", "sdmmc_init.ads", "sdmmc_svd.ads", "sdmmc_svd_periph.ads", "semihosting.adb", "semihosting.ads", "semihosting-filesystem.adb", "semihosting-filesystem.ads", "serial_io.adb", 
+      "serial_io.ads", "serial_io-blocking.adb", "serial_io-blocking.ads", "serial_io-nonblocking.adb", "serial_io-nonblocking.ads", "sgtl5000.adb", "sgtl5000.ads", "simple_synthesizer.adb", "simple_synthesizer.ads", 
+      "soft_drawing_bitmap.adb", "soft_drawing_bitmap.ads", "ssd1306.adb", "ssd1306.ads", "ssd1306-standard_resolutions.ads", "st7735r.adb", "st7735r.ads", "st7735r-ram_framebuffer.adb", "st7735r-ram_framebuffer.ads", "stm32-adc.adb", 
+      "stm32-adc.ads", "stm32.ads", "stm32-crc.adb", "stm32-crc.ads", "stm32-crc-dma.adb", "stm32-crc-dma.ads", "stm32-dac.adb", "stm32-dac.ads", "stm32-dcmi.adb", "stm32-dcmi.ads", "stm32-device.adb", "stm32-device.ads", 
+      "stm32-device_id.adb", "stm32-device_id.ads", "stm32-dma2d_bitmap.adb", "stm32-dma2d_bitmap.ads", "stm32-dma2d-polling.adb", "stm32-dma2d-polling.ads", "stm32-dma.adb", "stm32-dma.ads", "stm32-dma-interrupts.adb", 
+      "stm32-dma-interrupts.ads", "stm32-exti.adb", "stm32-exti.ads", "stm32-fmc.adb", "stm32-fmc.ads", "stm32-gpio.adb", "stm32-gpio.ads", "stm32-i2c.adb", "stm32-i2c.ads", "stm32-i2c-dma.adb", "stm32-i2c-dma.ads", "stm32-i2s.adb", 
+      "stm32-i2s.ads", "stm32-iwdg.adb", "stm32-iwdg.ads", "stm32-power_control.adb", "stm32-power_control.ads", "stm32-pwm.adb", "stm32-pwm.ads", "stm32-rcc.adb", "stm32-rcc.ads", "stm32-rng.adb", "stm32-rng.ads", 
+      "stm32-rng-interrupts.adb", "stm32-rng-interrupts.ads", "stm32-rng-polling.adb", "stm32-rng-polling.ads", "stm32-rtc.adb", "stm32-rtc.ads", "stm32-sdmmc.adb", "stm32-sdmmc.ads", "stm32-sdmmc_interrupt.adb", 
+      "stm32-sdmmc_interrupt.ads", "stm32-setup.adb", "stm32-setup.ads", "stm32-spi.adb", "stm32-spi.ads", "stm32-spi-dma.adb", "stm32-spi-dma.ads", "stm32_svd-adc.ads", "stm32_svd.ads", "stm32_svd-can.ads", "stm32_svd-crc.ads", 
+      "stm32_svd-dac.ads", "stm32_svd-dbg.ads", "stm32_svd-dcmi.ads", "stm32_svd-dma2d.ads", "stm32_svd-dma.ads", "stm32_svd-ethernet.ads", "stm32_svd-exti.ads", "stm32_svd-flash.ads", "stm32_svd-fsmc.ads", "stm32_svd-gpio.ads", 
+      "stm32_svd-i2c.ads", "stm32_svd-iwdg.ads", "stm32_svd-ltdc.ads", "stm32_svd-nvic.ads", "stm32_svd-pwr.ads", "stm32_svd-rcc.ads", "stm32_svd-rng.ads", "stm32_svd-rtc.ads", "stm32_svd-sai.ads", "stm32_svd-sdio.ads", 
+      "stm32_svd-spi.ads", "stm32_svd-syscfg.ads", "stm32_svd-tim.ads", "stm32_svd-usart.ads", "stm32_svd-usb_otg_fs.ads", "stm32_svd-usb_otg_hs.ads", "stm32_svd-wwdg.ads", "stm32-syscfg.adb", "stm32-syscfg.ads", "stm32-timers.adb", 
+      "stm32-timers.ads", "stm32-usarts.adb", "stm32-usarts.ads", "stm32-wwdg.adb", "stm32-wwdg.ads", "stmpe1600.adb", "stmpe1600.ads", "stmpe811.adb", "stmpe811.ads", "vl53l0x.adb", "vl53l0x.ads", "vl53l1x.adb", "vl53l1x.ads", "wm8994.adb", 
+      "wm8994.ads");
+
+end Drivers;
+
