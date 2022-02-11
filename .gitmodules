@@ -1,0 +1,6 @@
+[submodule "src/Ada_Drivers_Library"]
+	path = src/Ada_Drivers_Library
+	url = git@github.com:AdaCore/Ada_Drivers_Library.git
+[submodule "src/drivers/Ada_Drivers_Library"]
+	path = src/drivers/Ada_Drivers_Library
+	url = git@github.com:AdaCore/Ada_Drivers_Library.git
