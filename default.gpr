@@ -1,19 +1,9 @@
+with "src/drivers/drivers.gpr";
+
 project Default is
 
    --  ADL Project dependency's source directories
-   for Source_Dirs use ("src/InputSanitizer/", "src/Ada_Drivers_Library/hal/src/", "src/Ada_Drivers_Library/boards/stm32f429_discovery/src/sfp", 
-      "src/Ada_Drivers_Library/boards/stm32_common/stm32f429disco/", "src/Ada_Drivers_Library/boards/stm32_common/common/", "src/Ada_Drivers_Library/boards/stm32_common/dma2d/", 
-      "src/Ada_Drivers_Library/boards/stm32_common/ltdc/", "src/Ada_Drivers_Library/boards/stm32_common/sdram/", "src/Ada_Drivers_Library/arch/ARM/cortex_m/src", 
-      "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/cm4f", "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/fpu", "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/nocache", 
-      "src/Ada_Drivers_Library/arch/ARM/cortex_m/src/nvic_cm4_cm7", "src/Ada_Drivers_Library/arch/ARM/STM32/devices/stm32f42x/", "src/Ada_Drivers_Library/arch/ARM/STM32/svd/stm32f429x", 
-      "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/dma/", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/dma_interrupts/", 
-      "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/fmc/", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/dma2d/", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/crc_stm32f4/", 
-      "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/i2c_stm32f4", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/power_control_stm32f4", 
-      "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/uart_stm32f4/", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/ltdc/", "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/sd/", 
-      "src/Ada_Drivers_Library/arch/ARM/STM32/drivers/sd/sdio/", "src/Ada_Drivers_Library/middleware/src/filesystem", "src/Ada_Drivers_Library/middleware/src/BLE", "src/Ada_Drivers_Library/middleware/src/utils", 
-      "src/Ada_Drivers_Library/middleware/src/audio", "src/Ada_Drivers_Library/middleware/src/monitor", "src/Ada_Drivers_Library/middleware/src/bitmap", 
-      "src/Ada_Drivers_Library/middleware/src/command_line", "src/Ada_Drivers_Library/middleware/src/sdmmc", "src/Ada_Drivers_Library/middleware/src/neopixel", 
-      "src/Ada_Drivers_Library/middleware/src/ravenscar-common", "src/Ada_Drivers_Library/components/src/**", "src/Ada_Drivers_Library/examples/shared/serial_ports/src", "src/");
+   for Source_Dirs use ("src", "src/InputSanitizer");
    for Object_Dir use "obj";
    for Main use ("main.adb");
    for Target use "arm-eabi";
