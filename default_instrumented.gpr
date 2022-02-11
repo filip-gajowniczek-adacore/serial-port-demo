@@ -1,4 +1,5 @@
 with "src/gnatcov_rts/gnatcov_rts.gpr";
+with "src/drivers/drivers.gpr";
 
 project Default_Instrumented is
 
