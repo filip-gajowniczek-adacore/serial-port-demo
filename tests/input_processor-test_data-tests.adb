@@ -37,13 +37,22 @@ package body Input_Processor.Test_Data.Tests is
    --  input_processor.ads:5:4:Process
 --  end read only
 
-      pragma Unreferenced (Gnattest_T);
+      use InputSanitizer;
 
    begin
 
+      -- Call subprogram under test
+      Input_Processor.Process(Gnattest_T.Input_1);
+
       AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+        ( Input_Range'Value(Input_Processor.Get_Processing_Result) = 5,
+         "Input_Processor package improperly initialized");
+
+      Input_Processor.Process(Gnattest_T.Input_2);
+
+      AUnit.Assertions.Assert
+        ( Input_Range'Value(Input_Processor.Get_Processing_Result) = 7,
+          "Input_Processor improperly processes input");
 
 --  begin read only
    end Test_Process;
