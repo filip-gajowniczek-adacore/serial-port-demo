@@ -16,6 +16,7 @@ project Default is
    end Ide;
 
    package Coverage is
+      for Switches("*") use ("--no-subprojects");
    end Coverage;
 
    package Gnattest is
