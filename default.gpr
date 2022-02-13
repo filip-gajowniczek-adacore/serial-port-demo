@@ -20,8 +20,8 @@ project Default is
    end Coverage;
 
    package Gnattest is
-      for Tests_Root use "../tests";
       for Gnattest_Switches use ("--no-subprojects");
+      for Tests_Dir use "../tests";
    end Gnattest;
 
 end Default;
