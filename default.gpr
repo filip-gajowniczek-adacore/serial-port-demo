@@ -20,6 +20,7 @@ project Default is
 
    package Gnattest is
       for Tests_Root use "../tests";
+      for Gnattest_Switches use ("--no-subprojects");
    end Gnattest;
 
 end Default;
