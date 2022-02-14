@@ -28,5 +28,9 @@ project Default is
       for Cwe use "True";
    end Codepeer;
 
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("-kU");
+   end Pretty_Printer;
+
 end Default;
 
