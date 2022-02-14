@@ -4,6 +4,7 @@ with Peripherals_Nonblocking;    use Peripherals_Nonblocking;
 with Serial_IO.Nonblocking;      use Serial_IO.Nonblocking;
 with Message_Buffers;            use Message_Buffers;
 with InputSanitizer;
+with Input_Processor;
 with Ada.Real_Time;              use Ada.Real_Time;
 
 procedure Main is
@@ -28,6 +29,9 @@ begin
 
    Send ("Enter Input in [0,10], terminated by CR." & ASCII.CR & ASCII.LF);
    while InputSanitizer.Read( Seconds(10), Input) loop
+      Input_Processor.Process(Input);
+      Send ("Processing result: " & Input_Processor.Get_Processing_Result &
+              ASCII.CR & ASCII.LF);
       Send ("Enter Input in [0,10], terminated by CR." & ASCII.CR & ASCII.LF);
    end loop;
 
