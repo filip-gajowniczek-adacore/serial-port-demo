@@ -8,4 +8,10 @@ project Default is
    for Target use "arm-eabi";
    for Runtime ("ada") use "light-tasking-stm32f4";
 
+   package Ide is
+      for Connection_Tool use "st-util";
+      for Program_Host use "localhost:4242";
+      for Communication_Protocol use "remote";
+   end Ide;
+
 end Default;
