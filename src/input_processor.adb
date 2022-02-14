@@ -3,7 +3,7 @@ with Ada.Exceptions;  use Ada.Exceptions;
 
 package body Input_Processor is
 
-   Accumulation : Integer := 0;
+   Accumulation : Natural := 0;
 
    -------------
    -- Process --
@@ -11,7 +11,11 @@ package body Input_Processor is
 
    procedure Process (Input : InputSanitizer.Input_Range) is
    begin
-      Accumulation := Accumulation + Integer (Input);
+      if Natural'Last - Accumulation >= Natural(Input) then
+         Accumulation := Accumulation + Natural(Input);
+      else
+         Accumulation := Natural'Last;
+      end if;
    end Process;
 
    ---------------------------
