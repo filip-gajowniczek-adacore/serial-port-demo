@@ -1,55 +1,55 @@
-pragma Ada_2012;
+PRAGMA Ada_2012;
 
-with Message_Buffers;         use Message_Buffers;
-with Serial_IO.Nonblocking;   use Serial_IO.Nonblocking;
-with Peripherals_Nonblocking; use Peripherals_Nonblocking;
-with Ada.Real_Time;           use Ada.Real_Time;
+WITH Message_Buffers;         USE Message_Buffers;
+WITH Serial_IO.Nonblocking;   USE Serial_IO.Nonblocking;
+WITH Peripherals_Nonblocking; USE Peripherals_Nonblocking;
+WITH Ada.Real_Time;           USE Ada.Real_Time;
 
-package body InputSanitizer is
+PACKAGE BODY InputSanitizer IS
 
-   Incoming : aliased Message (Physical_Size => 2);  -- arbitrary size
+   Incoming : ALIASED Message (Physical_Size => 2);  -- arbitrary size
 
-   function Sanitize
-     (Raw_Message : Message; Read_Value : out Input_Range) return Boolean
-   is
-   begin
-      if Raw_Message.Content_At (1) = '1'
-        and then Raw_Message.Content_At (2) = '0'
-      then
+   FUNCTION Sanitize
+     (Raw_Message : Message; Read_Value : OUT Input_Range) RETURN Boolean
+   IS
+   BEGIN
+      IF Raw_Message.Content(1) = '1'
+        AND THEN Raw_Message.Content(2) = '0'
+      THEN
          Read_Value := 10;
-      elsif Raw_Message.Content_At (2) in '0' .. '9' then
+      ELSIF Raw_Message.Content(2) IN '0' .. '9' THEN
          Read_Value := Input_Range'Value (Raw_Message.Content);
-      else
-         return False;
-      end if;
-      return True;
-   end Sanitize;
+      ELSE
+         RETURN False;
+      END IF;
+      RETURN True;
+   END Sanitize;
 
    ----------
    -- Read --
    ----------
 
-   function Read
-     (Timeout : Ada.Real_Time.Time_Span; Read_Value : out Input_Range)
-      return Boolean
-   is
-   begin
+   FUNCTION Read
+     (Timeout : Ada.Real_Time.Time_Span; Read_Value : OUT Input_Range)
+      RETURN Boolean
+   IS
+   BEGIN
 
       Get (COM, Incoming'Unchecked_Access);
 
-      delay until Ada.Real_Time.Clock + Timeout;
+      DELAY UNTIL Ada.Real_Time.Clock + Timeout;
 
-      if COM.Receiving then
+      IF COM.Receiving THEN
          -- Serial port is still waiting to receive data after timeout
-         return False;
-      elsif Sanitize (Incoming, Read_Value) then
-         return True;
-      else
-         return False;
-      end if;
+         RETURN False;
+      ELSIF Sanitize (Incoming, Read_Value) THEN
+         RETURN True;
+      ELSE
+         RETURN False;
+      END IF;
 
-   end Read;
+   END Read;
 
-begin
+BEGIN
    Set_Terminator (Incoming, To => ASCII.CR);
-end InputSanitizer;
+END InputSanitizer;
