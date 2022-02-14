@@ -20,12 +20,16 @@ project Default is
    end Gnattest;
 
    package Coverage is
-      for Switches("*") use ("--no-subprojects");
    end Coverage;
 
    package Ide_Coverage is
       for Level_Coverage use "stmt+mcdc";
    end Ide_Coverage;
+
+   package Codepeer is
+      for Switches use ("-level", "4", "--no-subprojects");
+      for Cwe use "True";
+   end Codepeer;
 
 end Default;
 
