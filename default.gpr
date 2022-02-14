@@ -16,13 +16,17 @@ project Default is
    end Ide;
 
    package Coverage is
-      for Switches("*") use ("--no-subprojects");
    end Coverage;
 
    package Gnattest is
       for Gnattest_Switches use ("--no-subprojects");
       for Tests_Dir use "../tests";
    end Gnattest;
+
+   package Codepeer is
+      for Switches use ("-level", "4", "--no-subprojects");
+      for Cwe use "True";
+   end Codepeer;
 
 end Default;
 
