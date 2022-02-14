@@ -1,5 +1,9 @@
 pragma Ada_2012;
+with Ada.Exceptions;  use Ada.Exceptions;
+
 package body Input_Processor is
+
+   Accumulation : Integer := 0;
 
    -------------
    -- Process --
@@ -7,21 +11,17 @@ package body Input_Processor is
 
    procedure Process (Input : InputSanitizer.Input_Range) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Process unimplemented");
-      raise Program_Error with "Unimplemented procedure Process";
+      Accumulation := Accumulation + Integer (Input);
    end Process;
 
    ---------------------------
    -- Get_Processing_Result --
    ---------------------------
 
+   -- Returns fixed-length String on the secondary stack
    function Get_Processing_Result return String is
    begin
-      pragma Compile_Time_Warning
-        (Standard.True, "Get_Processing_Result unimplemented");
-      return
-        raise Program_Error
-          with "Unimplemented function Get_Processing_Result";
+      return Accumulation'Image;
    end Get_Processing_Result;
 
 end Input_Processor;
