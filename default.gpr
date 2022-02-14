@@ -14,5 +14,10 @@ project Default is
       for Communication_Protocol use "remote";
    end Ide;
 
+   package Gnattest is
+      for Tests_Dir use "../testing/tests";
+      for Gnattest_Switches use ("--no-subprojects");
+   end Gnattest;
+
 end Default;
 
