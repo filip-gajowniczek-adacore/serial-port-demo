@@ -13,7 +13,7 @@ PACKAGE BODY InputSanitizer IS
      (Raw_Message : Message; Read_Value : OUT Input_Range) RETURN Boolean
    IS
    BEGIN
-      IF Raw_Message.Content(1) = '1'
+      IF Raw_Message.Content_At(1) = '1'
         AND THEN Raw_Message.Content(2) = '0'
       THEN
          Read_Value := 10;
